@@ -41,4 +41,4 @@ function euclid(p, q) {
         return euclid(q, p % q);
     }
 }
-
+euclid(100,50);
