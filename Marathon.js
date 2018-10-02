@@ -8,11 +8,6 @@
 // vinko는 참여자 명단에는 있지만, 완주자 명단에는 없기 때문에 완주하지 못했습니다.
 // 예제 #3
 // mislav는 참여자 명단에는 두 명이 있지만, 완주자 명단에는 한 명밖에 없기 때문에 한명은 완주하지 못했습니다.
-let answer = [];
-let Human = function (name, count) {
-    this.name = name;
-    this.count = count;
-};
 
 let participant = ['marina', 'josipa', 'nikola', 'vinko', 'filipa']
 let completion = ['josipa', 'filipa', 'marina', 'nikola']
@@ -75,8 +70,16 @@ function solution(participant, completion) {
 
     for (let key in hash) if (hash[key]) return key;
 }
+function solution(participant, completion) {
 
-
-solution(participant, completion)
-
+    var sortedComp = completion.sort(),
+        sortedPart = participant.sort();
+    var name = sortedPart[sortedPart.length - 1];
+  for(var idx in sortedComp){
+      if(sortedComp[idx] !== sortedPart[idx]){ name = sortedPart[idx];
+                break;                             }
+  }
+return name;
+}
+solution(participant,completion);
 // 미완성 통과못함..
