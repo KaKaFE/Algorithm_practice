@@ -28,39 +28,34 @@
 
 // 모든 사람이 2문제씩을 맞췄습니다.
 
+var answers = [1,2,3,4,5];
 function arrCre(arr) {
 	if(arr.length >= 10000) return arr;
 	return arrCre(arr.concat(arr));
 }
 
 var answers = [1,2,3,4,5];
-// function solution(answers) {
-//   var answer = [];
-//   var answerp = [{ name: 1, an: 0 }, { name: 2, an: 0 }, { name: 3, an: 0 }];
-//   var p1 = arrCre([1, 2, 3, 4, 5]);
-//   var p2 = arrCre([2, 1, 2, 3, 2, 4, 2, 5]);
-//   var p3 = arrCre([3, 3, 1, 1, 2, 2, 4, 4, 5, 5]);
-//   for (var i = 0; i < answers.length; i++) {
-//     if (answers[i] === p1[i]) answerp[0].an++;
-//     if (answers[i] === p2[i]) answerp[1].an++;
-//     if (answers[i] === p3[i]) answerp[2].an++;
-//   }
+function solution(answers) {
+  var answer = [];
+  var answerp = [{ name: 1, an: 0 }, { name: 2, an: 0 }, { name: 3, an: 0 }];
+  var p1 = arrCre([1, 2, 3, 4, 5]);
+  var p2 = arrCre([2, 1, 2, 3, 2, 4, 2, 5]);
+  var p3 = arrCre([3, 3, 1, 1, 2, 2, 4, 4, 5, 5]);
+  for (var i = 0; i < answers.length; i++) {
+    if (answers[i] === p1[i]) answerp[0].an++;
+    if (answers[i] === p2[i]) answerp[1].an++;
+    if (answers[i] === p3[i]) answerp[2].an++;
+  }
 
-//   answerp.sort((a, b) => {
-//     return a.an < b.an ? 1 : a.an > b.an ? -1 : 0;
-//   });
-//   for (val in answerp) {
-//     if (answerp[val].an !== 0) answer.push(answerp[val].name);
-//   }
-//    answerp[0].an === 0 && answerp[1].an === 0 && answerp[2].an === 0
-//      ? (answer = [1, 2, 3])
-//      : answer;
-//   return answer;
-// }
-
-
-
-
+  answerp.sort((a, b) => {
+    return a.an < b.an ? 1 : a.an > b.an ? -1 : 0;
+  });
+    var max = Math.max(answerp[0].an, answerp[1].an, answerp[2].an)
+  for (var val in answerp) {
+    if(answerp[val].an === max) answer.push(answerp[val].name)
+  }
+  return answer;
+}
 //  다른사람의 풀이
 
 function solution(answers) {
