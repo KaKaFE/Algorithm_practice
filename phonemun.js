@@ -16,7 +16,6 @@ function solution(phoneNum) {
     return answer;
 } 
 
-
 // 다른사람의 풀이
 
 function hide_numbers(s) {
